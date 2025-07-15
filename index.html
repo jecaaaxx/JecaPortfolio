@@ -3,46 +3,102 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Portfolio</title>
+  <title>Jerica B. Agapito | Portfolio</title>
   <style>
+    :root {
+      --bg-light: #fff0f5;
+      --text-light: #4b2c3a;
+      --nav-light: #f4a8c0;
+      --header-light: #f8c8dc;
+      --card-light: white;
+      --hover-light: #b03a67;
+
+      --bg-dark: #1e1e2f;
+      --text-dark: #f5f5f5;
+      --nav-dark: #33334d;
+      --header-dark: #2a2a3d;
+      --card-dark: #2f2f44;
+      --hover-dark: #f8c8dc;
+    }
+
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #fff0f5;
-      color: #4b2c3a;
+      background-color: var(--bg-light);
+      color: var(--text-light);
       scroll-behavior: smooth;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body.dark {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
     }
 
     header {
-      background-color: #f8c8dc;
-      color: #4b2c3a;
+      background-color: var(--header-light);
+      color: var(--text-light);
       padding: 2rem;
       text-align: center;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
+    body.dark header {
+      background-color: var(--header-dark);
+      color: var(--text-dark);
+    }
+
     nav {
-      background-color: #f4a8c0;
+      background-color: var(--nav-light);
       display: flex;
       justify-content: center;
       padding: 1rem 0;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       position: sticky;
       top: 0;
       z-index: 1000;
+      gap: 2rem;
+    }
+
+    body.dark nav {
+      background-color: var(--nav-dark);
     }
 
     nav a {
       color: white;
       text-decoration: none;
-      margin: 0 1.5rem;
       font-weight: bold;
+      font-size: 1rem;
       transition: color 0.3s;
     }
 
     nav a:hover {
       text-decoration: underline;
+      color: var(--hover-light);
+    }
+
+    body.dark nav a:hover {
+      color: var(--hover-dark);
+    }
+
+    .dark-toggle {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: 2px solid #4b2c3a;
+      padding: 0.4rem 0.8rem;
+      border-radius: 5px;
+      cursor: pointer;
       color: #4b2c3a;
+      background-color: white;
+      font-weight: bold;
+    }
+
+    body.dark .dark-toggle {
+      color: white;
+      border-color: white;
+      background-color: #333;
     }
 
     .section {
@@ -53,12 +109,13 @@
     }
 
     .section h2 {
-      color: #b03a67;
+      font-size: 2rem;
+      color: var(--hover-light);
       text-align: center;
     }
 
     .card {
-      background-color: white;
+      background-color: var(--card-light);
       padding: 1.5rem;
       border-radius: 12px;
       box-shadow: 0 6px 12px rgba(0,0,0,0.1);
@@ -66,17 +123,25 @@
       transition: transform 0.3s ease;
     }
 
+    body.dark .card {
+      background-color: var(--card-dark);
+    }
+
     .card:hover {
       transform: translateY(-5px);
     }
 
     footer {
-      background-color: #f8c8dc;
+      background-color: var(--header-light);
       text-align: center;
       padding: 1rem;
       font-size: 0.9rem;
-      color: #4b2c3a;
-      margin-top: 2rem;
+      color: var(--text-light);
+    }
+
+    body.dark footer {
+      background-color: var(--header-dark);
+      color: var(--text-dark);
     }
 
     .skills {
@@ -88,7 +153,7 @@
     }
 
     .skill-tag {
-      background-color: #f4a8c0;
+      background-color: var(--nav-light);
       color: white;
       padding: 0.3rem 0.8rem;
       border-radius: 20px;
@@ -97,11 +162,11 @@
     }
 
     .skill-tag:hover {
-      background-color: #b03a67;
+      background-color: var(--hover-light);
     }
 
     .contact-links a {
-      color: #b03a67;
+      color: var(--hover-light);
       margin-right: 1rem;
       text-decoration: none;
       font-weight: bold;
@@ -109,7 +174,7 @@
     }
 
     .contact-links a:hover {
-      color: #4b2c3a;
+      color: var(--text-light);
     }
 
     @keyframes fadeIn {
@@ -122,24 +187,19 @@
         flex-direction: column;
         align-items: center;
       }
-
       nav a {
         margin: 0.5rem 0;
       }
-
       .skills {
         flex-direction: column;
         align-items: center;
       }
-
       .section {
         padding: 2rem 1rem;
       }
-
       .card {
         padding: 1rem;
       }
-
       img {
         max-width: 90%;
         height: auto;
@@ -151,8 +211,9 @@
   </style>
 </head>
 <body>
+  <button class="dark-toggle" onclick="document.body.classList.toggle('dark')">Toggle Dark Mode</button>
   <header>
-    <h1>Welcome to Jerica's Portfolio</h1>
+    <h1>Jerica B. Agapito</h1>
     <p>Showcasing her work, skills, and passion for data</p>
   </header>
 
@@ -169,100 +230,102 @@
     <img src="DSCF4804.jpg" alt="Jerica's photo" style="width: 150px; border-radius: 50%; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
   </div>
 
-  <section id="about" class="section">
-    <h2>About Me</h2>
-    <div class="card">
-      <p>Detail-oriented BS Mathematics graduate from Pamantasan ng Lungsod ng Maynila with strong skills in machine learning and data science. I love extracting insights from complex datasets to support evidence-based decision-making. I also served as the Chairperson of the Auditing Committee in the PLM Mathematical Society (PLM MathSoc), where I led organizational audit strategies, streamlined data handling, and implemented effective documentation systems to ensure transparency and accountability.</p>
-      <a href="AGAPITO_RESUME.pdf" target="_blank" class="skill-tag">Download Résumé</a>
-    </div>
-  </section>
-
-  <section id="education" class="section">
-    <h2>Education</h2>
-    <div class="card">
-      <h3>Pamantasan ng Lungsod ng Maynila</h3>
-      <p><strong>Bachelor of Science in Mathematics</strong><br>2019 – 2024<br>Graduated with strong emphasis on statistical modeling, machine learning, and quantitative research.</p>
-    </div>
-  </section>
-
-  <section id="experience" class="section">
-    <h2>Experience</h2>
-    <div class="card">
-      <h3>Chairperson, Auditing Committee – PLM Mathematical Society</h3>
-      <p>2024 – 2025<br>Led audit strategies and compliance checks for over 10 organizational events. Developed audit tools and documentation systems that improved transparency across committees.</p>
-    </div>
-    <div class="card">
-      <h3>Part-time Customer Service Representative – Flowerstore.ph</h3>
-      <p>2025<br>Assisted customers through chat and email support. Gained experience in fast-paced client handling, issue resolution, and customer satisfaction metrics.</p>
-    </div>
-    <div class="card">
-      <h3>Service Crew - McDonald's</h3>
-      <p>2022 - 2024<br> Developed a strong sense of teamwork, time management, and operational discipline.</p>
-    </div>
-  </section>
-
-  <section id="skills" class="section">
-    <h2>Skills</h2>
-    <div class="card">
-      <div class="skills">
-        <span class="skill-tag">Python</span>
-        <span class="skill-tag">Pandas</span>
-        <span class="skill-tag">Scikit-learn</span>
-        <span class="skill-tag">SQL</span>
-        <span class="skill-tag">Looker Studio</span>
-        <span class="skill-tag">Excel</span>
-        <span class="skill-tag">Power BI</span>
-        <span class="skill-tag">Data Cleaning</span>
-        <span class="skill-tag">Feature Engineering</span>
-        <span class="skill-tag">Machine Learning</span>
-        <span class="skill-tag">Data Visualization</span>
-        <span class="skill-tag">Statistical Analysis</span>
+  <main>
+    <section id="about" class="section">
+      <h2>About Me</h2>
+      <div class="card">
+        <p>Detail-oriented BS Mathematics graduate from Pamantasan ng Lungsod ng Maynila with strong skills in machine learning and data science. I love extracting insights from complex datasets to support evidence-based decision-making. I also served as the Chairperson of the Auditing Committee in the PLM Mathematical Society (PLM MathSoc), where I led organizational audit strategies, streamlined data handling, and implemented effective documentation systems to ensure transparency and accountability.</p>
+        <a href="AGAPITO_RESUME.pdf" target="_blank" class="skill-tag">Download Résumé</a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="projects" class="section">
-    <h2>Projects</h2>
-    <div class="card">
-      <h3>Silent Signals: Predicting Domestic Violence Risk</h3>
-      <p><em>December 2024 – May 2025</em></p>
-      <p>Capstone thesis project using machine learning algorithms (Logistic Regression, Random Forest, XGBoost, LightGBM, and KNN) to identify key predictors of domestic violence vulnerability among Filipino women. <br><strong>Tools:</strong> Python, Scikit-learn, Pandas, Matplotlib</p>
-    </div>
-    <div class="card">
-      <h3>Transparency Report of Fundraising Raffle 2025</h3>
-      <p><em>April 2025</em></p>
-      <p>Generated an interactive transparency report for PLM MathSoc's 2025 fundraising raffle using Looker Studio, providing stakeholders with real-time insights on ticket sales, allocation of funds, and impact metrics.</p>
-    </div>
-    <div class="card">
-      <h3>PLM MathSoc Audit Tracker System</h3>
-      <p><em>June 2024 – June 2025</em></p>
-      <p>Developed and maintained a structured audit tracker that logged financial records, inventory tracking, and event budget evaluations. Helped reduce discrepancies and improved data accessibility for internal review.</p>
-    </div>
-    <div class="card">
-      <h3>Committee Transition Handbook</h3>
-      <p><em>June 2024 – June 2025</em></p>
-      <p>Initiated and co-authored a comprehensive handbook to guide incoming audit committee members. Included documentation protocols, audit checklists, and soft skill recommendations for a smooth leadership transition.</p>
-    </div>
-    <div class="card">
-      <h3>Internal Compliance Review Reports</h3>
-      <p><em>August 2024 – June 2025</em></p>
-      <p>Led quarterly reviews of organization transactions and event reports. Identified key areas for improvement, ensuring adherence to policies and boosting overall accountability within the organization.</p>
-    </div>
-  </section>
+    <section id="education" class="section">
+      <h2>Education</h2>
+      <div class="card">
+        <h3>Pamantasan ng Lungsod ng Maynila</h3>
+        <p><strong>Bachelor of Science in Mathematics</strong><br>2019 – 2024<br>Graduated with strong emphasis on statistical modeling, machine learning, and quantitative research.</p>
+      </div>
+    </section>
 
-  <section id="contact" class="section">
-    <h2>Contact</h2>
-    <div class="card contact-links">
-      <p>Email: <a href="mailto:jericagaapito13@gmail.com">jericagaapito13@gmail.com</a></p>
-      <p>Phone / Viber: <a href="tel:+639910405565">0991 040 5565</a></p>
-      <p>
-        <a href="https://www.linkedin.com/in/jericaagapito" target="_blank">LinkedIn</a>
-      </p>
-    </div>
-  </section>
+    <section id="experience" class="section">
+      <h2>Experience</h2>
+      <div class="card">
+        <h3>Chairperson, Auditing Committee – PLM Mathematical Society</h3>
+        <p>2024 – 2025<br>Led audit strategies and compliance checks for over 10 organizational events. Developed audit tools and documentation systems that improved transparency across committees.</p>
+      </div>
+      <div class="card">
+        <h3>Part-time Customer Service Representative – Flowerstore.ph</h3>
+        <p>2025<br>Assisted customers through chat and email support. Gained experience in fast-paced client handling, issue resolution, and customer satisfaction metrics.</p>
+      </div>
+      <div class="card">
+        <h3>Service Crew - McDonald's</h3>
+        <p>2022 - 2024<br> Developed a strong sense of teamwork, time management, and operational discipline.</p>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <h2>Skills</h2>
+      <div class="card">
+        <div class="skills">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Pandas</span>
+          <span class="skill-tag">Scikit-learn</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">Looker Studio</span>
+          <span class="skill-tag">Excel</span>
+          <span class="skill-tag">Power BI</span>
+          <span class="skill-tag">Data Cleaning</span>
+          <span class="skill-tag">Feature Engineering</span>
+          <span class="skill-tag">Machine Learning</span>
+          <span class="skill-tag">Data Visualization</span>
+          <span class="skill-tag">Statistical Analysis</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <h2>Projects</h2>
+      <div class="card">
+        <h3>Silent Signals: Predicting Domestic Violence Risk</h3>
+        <p><em>December 2024 – May 2025</em></p>
+        <p>Capstone thesis project using machine learning algorithms (Logistic Regression, Random Forest, XGBoost, LightGBM, and KNN) to identify key predictors of domestic violence vulnerability among Filipino women. <br><strong>Tools:</strong> Python, Scikit-learn, Pandas, Matplotlib</p>
+      </div>
+      <div class="card">
+        <h3>Transparency Report of Fundraising Raffle 2025</h3>
+        <p><em>April 2025</em></p>
+        <p>Generated an interactive transparency report for PLM MathSoc's 2025 fundraising raffle using Looker Studio, providing stakeholders with real-time insights on ticket sales, allocation of funds, and impact metrics.</p>
+      </div>
+      <div class="card">
+        <h3>PLM MathSoc Audit Tracker System</h3>
+        <p><em>June 2024 – June 2025</em></p>
+        <p>Developed and maintained a structured audit tracker that logged financial records, inventory tracking, and event budget evaluations. Helped reduce discrepancies and improved data accessibility for internal review.</p>
+      </div>
+      <div class="card">
+        <h3>Committee Transition Handbook</h3>
+        <p><em>June 2024 – June 2025</em></p>
+        <p>Initiated and co-authored a comprehensive handbook to guide incoming audit committee members. Included documentation protocols, audit checklists, and soft skill recommendations for a smooth leadership transition.</p>
+      </div>
+      <div class="card">
+        <h3>Internal Compliance Review Reports</h3>
+        <p><em>August 2024 – June 2025</em></p>
+        <p>Led quarterly reviews of organization transactions and event reports. Identified key areas for improvement, ensuring adherence to policies and boosting overall accountability within the organization.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <div class="card contact-links">
+        <p>Email: <a href="mailto:jericagaapito13@gmail.com">jericagaapito13@gmail.com</a></p>
+        <p>Phone / Viber: <a href="tel:+639910405565">0991 040 5565</a></p>
+        <p>
+          <a href="https://www.linkedin.com/in/jericaagapito" target="_blank">LinkedIn</a>
+        </p>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    <p>&copy; 2025 Jeca. All rights reserved.</p>
+    <p>&copy; 2025 Jerica B. Agapito. All rights reserved.</p>
   </footer>
 </body>
 </html>
