@@ -2,258 +2,234 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Jerica Agapito | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
   <style>
-    :root {
-      --bg-light: #fff5f7;
-      --bg-dark: #1e1e2f;
-      --text-light: #333;
-      --text-dark: #f2f2f2;
-      --primary: #f8c4d6;
-      --accent: #b3547a;
-      --highlight: #ffe6eb;
-    }
-
     body {
-      font-family: 'Poppins', sans-serif;
       margin: 0;
-      padding: 0;
-      background-color: var(--bg-light);
-      color: var(--text-light);
-      transition: background-color 0.4s, color 0.4s;
-    }
-
-    body.dark-mode {
-      background-color: var(--bg-dark);
-      color: var(--text-dark);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fff0f5;
+      color: #4b2c3a;
     }
 
     header {
-      background-color: var(--primary);
-      padding: 2rem 1rem 1rem;
+      background-color: #f8c8dc;
+      color: #4b2c3a;
+      padding: 2rem;
       text-align: center;
-    }
-    header img {
-      width: 160px;
-      border-radius: 50%;
-      display: block;
-      margin: auto;
-      margin-bottom: 20px;
-      border: 4px solid #fff;
-    }
-    header h1 {
-      margin: 0;
-      color: #7b2d44;
-      font-size: 2rem;
-    }
-    header p, header a {
-      margin: 0.3rem;
-      color: #7b2d44;
-      text-decoration: none;
-    }
-
-    .toggle-mode {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      font-size: 1.2rem;
-      cursor: pointer;
-      background: none;
-      border: none;
-      color: #7b2d44;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
     nav {
-      background-color: #f2a7c1;
-      padding: 1rem;
-      text-align: center;
+      background-color: #f4a8c0;
+      display: flex;
+      justify-content: center;
+      padding: 1rem 0;
+      flex-wrap: wrap;
     }
+
     nav a {
-      margin: 0 1rem;
-      color: #fff;
+      color: white;
       text-decoration: none;
-      font-weight: 500;
+      margin: 0 1.5rem;
+      font-weight: bold;
     }
+
     nav a:hover {
       text-decoration: underline;
     }
 
+    .section {
+      padding: 3rem 2rem;
+    }
+
+    .section h2 {
+      color: #b03a67;
+    }
+
     .card {
-      background-color: #fff;
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 2rem;
+      background-color: white;
+      padding: 1.5rem;
       border-radius: 12px;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-      transition: transform 0.4s, opacity 0.4s;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    .card.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    body.dark-mode .card {
-      background-color: #2e2e42;
-    }
-
-    h2 {
-      color: var(--accent);
-      border-bottom: 2px solid #f2a7c1;
-      padding-bottom: 0.3rem;
-    }
-
-    ul {
-      padding-left: 1.2rem;
-    }
-
-    .tag-list span {
-      background-color: var(--highlight);
-      padding: 0.3rem 0.6rem;
-      margin: 0.3rem;
-      border-radius: 5px;
-      display: inline-block;
-      font-size: 0.9rem;
-    }
-
-    .resume-btn {
-      display: inline-block;
-      margin-top: 1rem;
-      background: var(--accent);
-      color: white;
-      padding: 0.6rem 1rem;
-      border-radius: 6px;
-      text-decoration: none;
-    }
-
-    .resume-btn:hover {
-      background: #96385c;
-    }
-
-    form input, form textarea {
-      width: 100%;
-      padding: 0.7rem;
-      margin: 0.5rem 0;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    form button {
-      background-color: var(--accent);
-      color: white;
-      padding: 0.6rem 1.2rem;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    form button:hover {
-      background-color: #96385c;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      margin: 1rem 0;
     }
 
     footer {
-      background-color: var(--primary);
-      padding: 1rem;
+      background-color: #f8c8dc;
       text-align: center;
-      color: #7b2d44;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #4b2c3a;
     }
 
-    @media (max-width: 600px) {
-      nav a {
-        display: block;
-        margin: 0.5rem 0;
-      }
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
     }
+
+    .skill-tag {
+      background-color: #f4a8c0;
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+    }
+
+    .contact-links a {
+      color: #b03a67;
+      margin-right: 1rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+   /* --- Responsive tweaks for mobile screens --- */
+  @media (max-width: 768px) {
+    nav {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    nav a {
+      margin: 0.5rem 0;
+    }
+
+    .skills {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .section {
+      padding: 2rem 1rem;
+    }
+
+    .card {
+      padding: 1rem;
+    }
+
+    img {
+      max-width: 90%;
+      height: auto;
+      display: block;
+      margin: 1rem auto;
+      border-radius: 12px;
+    }
+  }
+   
   </style>
 </head>
 <body>
-  <button class="toggle-mode" onclick="document.body.classList.toggle('dark-mode')">
-    <i class="fas fa-moon"></i>
-  </button>
   <header>
-    <img src="DSCF4804.jpg" alt="Jerica Agapito" />
-    <h1>Jerica Agapito</h1>
-    <p><a href="mailto:jbagapito13@gmail.com"><i class="fas fa-envelope"></i> jbagapito13@gmail.com</a> | <i class="fas fa-phone"></i> (+63) 991 040 5565</p>
-    <p><a href="http://www.linkedin.com/in/jericaagapito" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></p>
+    <h1>Welcome to Jerica's Portfolio</h1>
+    <p>Showcasing her work, skills, and passion for data</p>
   </header>
 
   <nav>
-    <a href="#about"><i class="fas fa-user"></i> About</a>
-    <a href="#skills"><i class="fas fa-cogs"></i> Skills</a>
-    <a href="#education"><i class="fas fa-graduation-cap"></i> Education</a>
-    <a href="#experience"><i class="fas fa-briefcase"></i> Experience</a>
-    <a href="#projects"><i class="fas fa-laptop-code"></i> Projects</a>
-    <a href="#contact"><i class="fas fa-paper-plane"></i> Contact</a>
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
   </nav>
 
-  <div class="card" id="about">
+<div style="text-align: center; margin-top: 2rem;">
+  <img src="DSCF4804.jpg" alt="Jerica's photo" style="width: 150px; border-radius: 50%; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
+</div>
+
+  <section id="about" class="section">
     <h2>About Me</h2>
-    <p>Detail-oriented BS Mathematics graduate from Pamantasan ng Lungsod ng Maynila with strong skills in machine learning and data science. I love extracting insights from complex datasets to support evidence-based decision-making.</p>
-    <a href="AGAPITO_RESUME.pdf" download class="resume-btn"><i class="fas fa-download"></i> Download Resume</a>
-  </div>
-
-  <div class="card" id="skills">
-    <h2>Skills</h2>
-    <div class="tag-list">
-      <span>Python</span><span>R</span><span>Excel</span><span>Google Sheets</span><span>Google Colab</span>
-      <span>LaTeX</span><span>Looker Studio</span><span>SQL</span><span>Power BI</span><span>Canva</span>
+    <div class="card">
+      <p>Detail-oriented BS Mathematics graduate from Pamantasan ng Lungsod ng Maynila with strong skills in machine learning and data science. I love extracting insights from complex datasets to support evidence-based decision-making. 
+      I also served as the Chairperson of the Auditing Committee in the PLM Mathematical Society (PLM MathSoc), where I led organizational audit strategies, streamlined data handling, and implemented effective documentation systems to ensure transparency and accountability.</p>
+      <a href="AGAPITO_RESUME.pdf" target="_blank" class="skill-tag">Download Résumé</a>
     </div>
-  </div>
+  </section>
 
-  <div class="card" id="education">
+  <section id="education" class="section">
     <h2>Education</h2>
-    <ul>
-      <li><strong>BS Mathematics</strong>, Pamantasan ng Lungsod ng Maynila (2021–2025)</li>
-      <li><strong>ABM Strand</strong>, PUP SHS (2019–2021)</li>
-    </ul>
-  </div>
+    <div class="card">
+      <h3>Pamantasan ng Lungsod ng Maynila</h3>
+      <p><strong>Bachelor of Science in Mathematics</strong><br>2019 – 2024<br>Graduated with strong emphasis on statistical modeling, machine learning, and quantitative research.</p>
+    </div>
+  </section>
 
-  <div class="card" id="experience">
+  <section id="experience" class="section">
     <h2>Experience</h2>
-    <h3>PLM – Undergraduate Thesis</h3>
-    <ul>
-      <li>Developed ML models (KNN, RF, XGBoost, etc.)</li>
-      <li>Used scikit-learn, pandas, and matplotlib</li>
-      <li>Analyzed results with ROC-AUC and F1-score</li>
-    </ul>
-  </div>
+    <div class="card">
+      <h3>Chairperson, Auditing Committee – PLM Mathematical Society</h3>
+      <p>2024 – 2025<br>Led audit strategies and compliance checks for over 10 organizational events. Developed audit tools and documentation systems that improved transparency across committees.</p>
+    </div>
+    <div class="card">
+      <h3>Part-time Customer Service Representative – Flowerstore.ph</h3>
+      <p>2023<br>Assisted customers through chat and email support. Gained experience in fast-paced client handling, issue resolution, and customer satisfaction metrics.</p>
+    </div>
+  </section>
 
-  <div class="card" id="projects">
+  <section id="skills" class="section">
+    <h2>Skills</h2>
+    <div class="card">
+      <div class="skills">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Pandas</span>
+        <span class="skill-tag">Scikit-learn</span>
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">Looker Studio</span>
+        <span class="skill-tag">Excel</span>
+        <span class="skill-tag">Power BI</span>
+        <span class="skill-tag">Data Cleaning</span>
+        <span class="skill-tag">Feature Engineering</span>
+        <span class="skill-tag">Machine Learning</span>
+        <span class="skill-tag">Data Visualization</span>
+        <span class="skill-tag">Statistical Analysis</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="section">
     <h2>Projects</h2>
-    <p><strong>Silent Signals:</strong> Thesis project using machine learning to predict domestic violence vulnerability. Techniques included feature selection, hyperparameter tuning, and comparative evaluation.</p>
-  </div>
+    <div class="card">
+      <h3>Silent Signals: Predicting Domestic Violence Risk</h3>
+      <p><em>December 2024 – May 2025</em></p>
+      <p>Capstone thesis project using machine learning algorithms (Logistic Regression, Random Forest, XGBoost, LightGBM, and KNN) to identify key predictors of domestic violence vulnerability among Filipino women. <br><strong>Tools:</strong> Python, Scikit-learn, Pandas, Matplotlib</p>
+    </div>
+    <div class="card">
+      <h3>Transparency Report of Fundraising Raffle 2025</h3>
+      <p><em>April 2025</em></p>
+      <p>Generated an interactive transparency report for PLM MathSoc's 2025 fundraising raffle using Looker Studio, providing stakeholders with real-time insights on ticket sales, allocation of funds, and impact metrics.</p>
+    </div>
+    <div class="card">
+      <h3>PLM MathSoc Audit Tracker System</h3>
+      <p><em>June 2024 – June 2025</em></p>
+      <p>Developed and maintained a structured audit tracker that logged financial records, inventory tracking, and event budget evaluations. Helped reduce discrepancies and improved data accessibility for internal review.</p>
+    </div>
+    <div class="card">
+      <h3>Committee Transition Handbook</h3>
+      <p><em>June 2024 – June 2025</em></p>
+      <p>Initiated and co-authored a comprehensive handbook to guide incoming audit committee members. Included documentation protocols, audit checklists, and soft skill recommendations for a smooth leadership transition.</p>
+    </div>
+    <div class="card">
+      <h3>Internal Compliance Review Reports</h3>
+      <p><em>August 2024 – June 2025</em></p>
+      <p>Led quarterly reviews of organization transactions and event reports. Identified key areas for improvement, ensuring adherence to policies and boosting overall accountability within the organization.</p>
+    </div>
+  </section>
 
-  <div class="card" id="contact">
-    <h2>Contact Me</h2>
-    <form action="https://formspree.io/f/your-form-id" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-      <button type="submit"><i class="fas fa-paper-plane"></i> Send</button>
-    </form>
-  </div>
+ <section id="contact" class="section">
+    <h2>Contact</h2>
+    <div class="card contact-links">
+      <p>Email: <a href="mailto:jericagaapito13@gmail.com">jericagaapito13@gmail.com</a></p>
+      <p>Phone / Viber: <a href="tel:+639910405565">0991 040 5565</a></p>
+      <p>
+        <a href="https://www.linkedin.com/in/jericaagapito" target="_blank">LinkedIn</a>
+      </p>
+    </div>
+  </section>
 
   <footer>
-    © 2025 Jerica Agapito | Built with 💖 in rose-pink
+    <p>&copy; 2025 Jeca. All rights reserved.</p>
   </footer>
-
-  <script>
-    const cards = document.querySelectorAll('.card');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    cards.forEach(card => observer.observe(card));
-  </script>
 </body>
-</html>
+</html>"
