@@ -10,6 +10,7 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #fff0f5;
       color: #4b2c3a;
+      scroll-behavior: smooth;
     }
 
     header {
@@ -26,6 +27,9 @@
       justify-content: center;
       padding: 1rem 0;
       flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     nav a {
@@ -33,18 +37,24 @@
       text-decoration: none;
       margin: 0 1.5rem;
       font-weight: bold;
+      transition: color 0.3s;
     }
 
     nav a:hover {
       text-decoration: underline;
+      color: #4b2c3a;
     }
 
     .section {
       padding: 3rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+      animation: fadeIn 1s ease;
     }
 
     .section h2 {
       color: #b03a67;
+      text-align: center;
     }
 
     .card {
@@ -53,6 +63,11 @@
       border-radius: 12px;
       box-shadow: 0 6px 12px rgba(0,0,0,0.1);
       margin: 1rem 0;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
     }
 
     footer {
@@ -61,6 +76,7 @@
       padding: 1rem;
       font-size: 0.9rem;
       color: #4b2c3a;
+      margin-top: 2rem;
     }
 
     .skills {
@@ -68,6 +84,7 @@
       flex-wrap: wrap;
       gap: 0.5rem;
       margin-top: 1rem;
+      justify-content: center;
     }
 
     .skill-tag {
@@ -76,6 +93,11 @@
       padding: 0.3rem 0.8rem;
       border-radius: 20px;
       font-size: 0.85rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .skill-tag:hover {
+      background-color: #b03a67;
     }
 
     .contact-links a {
@@ -83,41 +105,49 @@
       margin-right: 1rem;
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s;
     }
 
-   /* --- Responsive tweaks for mobile screens --- */
-  @media (max-width: 768px) {
-    nav {
-      flex-direction: column;
-      align-items: center;
+    .contact-links a:hover {
+      color: #4b2c3a;
     }
 
-    nav a {
-      margin: 0.5rem 0;
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(10px);}
+      to {opacity: 1; transform: translateY(0);}
     }
 
-    .skills {
-      flex-direction: column;
-      align-items: center;
-    }
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
 
-    .section {
-      padding: 2rem 1rem;
-    }
+      nav a {
+        margin: 0.5rem 0;
+      }
 
-    .card {
-      padding: 1rem;
-    }
+      .skills {
+        flex-direction: column;
+        align-items: center;
+      }
 
-    img {
-      max-width: 90%;
-      height: auto;
-      display: block;
-      margin: 1rem auto;
-      border-radius: 12px;
+      .section {
+        padding: 2rem 1rem;
+      }
+
+      .card {
+        padding: 1rem;
+      }
+
+      img {
+        max-width: 90%;
+        height: auto;
+        display: block;
+        margin: 1rem auto;
+        border-radius: 12px;
+      }
     }
-  }
-   
   </style>
 </head>
 <body>
@@ -135,15 +165,14 @@
     <a href="#contact">Contact</a>
   </nav>
 
-<div style="text-align: center; margin-top: 2rem;">
-  <img src="DSCF4804.jpg" alt="Jerica's photo" style="width: 150px; border-radius: 50%; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
-</div>
+  <div style="text-align: center; margin-top: 2rem;">
+    <img src="DSCF4804.jpg" alt="Jerica's photo" style="width: 150px; border-radius: 50%; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
+  </div>
 
   <section id="about" class="section">
     <h2>About Me</h2>
     <div class="card">
-      <p>Detail-oriented BS Mathematics graduate from Pamantasan ng Lungsod ng Maynila with strong skills in machine learning and data science. I love extracting insights from complex datasets to support evidence-based decision-making. 
-      I also served as the Chairperson of the Auditing Committee in the PLM Mathematical Society (PLM MathSoc), where I led organizational audit strategies, streamlined data handling, and implemented effective documentation systems to ensure transparency and accountability.</p>
+      <p>Detail-oriented BS Mathematics graduate from Pamantasan ng Lungsod ng Maynila with strong skills in machine learning and data science. I love extracting insights from complex datasets to support evidence-based decision-making. I also served as the Chairperson of the Auditing Committee in the PLM Mathematical Society (PLM MathSoc), where I led organizational audit strategies, streamlined data handling, and implemented effective documentation systems to ensure transparency and accountability.</p>
       <a href="AGAPITO_RESUME.pdf" target="_blank" class="skill-tag">Download Résumé</a>
     </div>
   </section>
@@ -164,7 +193,11 @@
     </div>
     <div class="card">
       <h3>Part-time Customer Service Representative – Flowerstore.ph</h3>
-      <p>2023<br>Assisted customers through chat and email support. Gained experience in fast-paced client handling, issue resolution, and customer satisfaction metrics.</p>
+      <p>2025<br>Assisted customers through chat and email support. Gained experience in fast-paced client handling, issue resolution, and customer satisfaction metrics.</p>
+    </div>
+    <div class="card">
+      <h3>Service Crew - McDonald's</h3>
+      <p>2022 - 2024<br> Developed a strong sense of teamwork, time management, and operational discipline.</p>
     </div>
   </section>
 
@@ -217,7 +250,7 @@
     </div>
   </section>
 
- <section id="contact" class="section">
+  <section id="contact" class="section">
     <h2>Contact</h2>
     <div class="card contact-links">
       <p>Email: <a href="mailto:jericagaapito13@gmail.com">jericagaapito13@gmail.com</a></p>
@@ -232,4 +265,4 @@
     <p>&copy; 2025 Jeca. All rights reserved.</p>
   </footer>
 </body>
-</html>"
+</html>
